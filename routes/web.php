@@ -23,7 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/users',[App\Http\Controllers\UserController::class, 'index'])->middleware('auth');
 Route::get('/cars',[App\Http\Controllers\CarController::class, 'index'])->name('car:list');
 Route::get('/cars/create',[App\Http\Controllers\CarController::class, 'create'])->name('car:create');
-Route::post('/cars/create',[App\Http\Controllers\CarController::class, 'store']);
+Route::post('/cars/create',[App\Http\Controllers\CarController::class, 'store'])->name('car:store');
 Route::get('/cars/{car}',[App\Http\Controllers\CarController::class, 'show'])->name('cars:show');
 Route::get('/cars/{car}/edit',[App\Http\Controllers\CarController::class, 'edit'])->name('cars:edit');
 Route::post('/cars/{car}/edit',[App\Http\Controllers\CarController::class, 'update'])->name('cars:update');

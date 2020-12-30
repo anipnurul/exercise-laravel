@@ -29,10 +29,14 @@ class CarController extends Controller
         $car->name=$request->name;
         $car->register_no=$request->register_no;
         $car->color=$request->color;
-        
         $car->save();
 
-        return redirect()->back();
+        //return redirect()->back();
+        return redirect()
+        ->route('car:list')
+        ->with (
+            ['alert-type' => 'alert-primary',
+            'alert'=>'Your car info saved']);
         //return view('cars.store');
          //recources/views/cars/create.blade.php
     }
@@ -51,12 +55,22 @@ class CarController extends Controller
        
         $car->update($request->only('name','register_no','color'));
       
-        return redirect()->route('car:list');
+        //return redirect()->route('car:list');
+        return redirect()
+        ->route('car:list')
+        ->with (
+            ['alert-type' => 'alert-success',
+            'alert'=>'Your car info updated']);
         
     }
 
     public function delete(Car $car){
         $car->delete();
-        return redirect()->route('car:list');
+        //return redirect()->route('car:list');
+        return redirect()
+        ->route('car:list')
+        ->with (
+        ['alert-type' => 'alert-danger',
+        'alert'=>'Your car info deleted']);
     }
 }

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Create car') }}</div>
 
                 <div class="card-body">
-                   <form method="POST" action="">
+                <form method="POST" action="{{route('car:store') }}" enctype="multipart/form-data">
                    @csrf
                      <div class="form-group">
                      <label>Model name</label>
@@ -23,6 +23,11 @@
                      <div class="form-group">
                      <label>Model Color</label>
                      <input type="text" name="color" class="form-control">
+                     </div>
+
+                     <div class="form-group">
+                     <label>Attachment</label>
+                     <input type="file" name="attachment" class="form-control">
                      </div>
 
                      <div class="form-group">
